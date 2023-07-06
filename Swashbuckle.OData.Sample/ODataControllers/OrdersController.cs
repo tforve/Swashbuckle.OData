@@ -5,11 +5,11 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using System.Web.OData;
 using SwashbuckleODataSample.Models;
 using SwashbuckleODataSample.Repositories;
 using SwashbuckleODataSample.Utils;
 using System.Collections.Generic;
+using Microsoft.AspNet.OData;
 
 namespace SwashbuckleODataSample.ODataControllers
 {

@@ -3,10 +3,10 @@ using System.Net.Http;
 using System.Web.Configuration;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
-using System.Web.OData.Builder;
-using System.Web.OData.Extensions;
-using System.Web.OData.Routing;
-using System.Web.OData.Routing.Conventions;
+using Microsoft.AspNet.OData.Builder;
+using Microsoft.AspNet.OData.Extensions;
+using Microsoft.AspNet.OData.Routing;
+using Microsoft.AspNet.OData.Routing.Conventions;
 using Microsoft.OData;
 using Microsoft.OData.Edm;
 using Microsoft.OData.UriParser;
@@ -33,7 +33,9 @@ namespace SwashbuckleODataSample
         private static async void ConfigureRestierOData(HttpConfiguration config)
         {
             config.Filter().Expand().Select().OrderBy().MaxTop(null).Count();
-            await config.MapRestierRoute<EntityFrameworkApi<RestierODataContext>>("RESTierRoute", "restier", new RestierBatchHandler(GlobalConfiguration.DefaultServer));
+            await config.MapRestierRoute<EntityFrameworkApi<RestierODataContext>>("RESTierRoute", 
+                      "restier", 
+                      new RestierBatchHandler(GlobalConfiguration.DefaultServer));
         }
 
         private static void ConfigureWebApiOData(HttpConfiguration config)

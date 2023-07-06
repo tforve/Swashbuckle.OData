@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNet.OData.Extensions;
+using Microsoft.OData;
+using Microsoft.OData.UriParser;
+using System;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http.ModelBinding;
 using System.Web.Http.Routing;
-using System.Web.OData.Extensions;
-using Microsoft.OData;
-using Microsoft.OData.UriParser;
-using ODataPath = System.Web.OData.Routing.ODataPath;
+using ODataPath = Microsoft.AspNet.OData.Routing.ODataPath;
 
 namespace SwashbuckleODataSample.Versioning
 {
@@ -43,7 +43,7 @@ namespace SwashbuckleODataSample.Versioning
             {
                 throw new InvalidOperationException("The link is not a valid odata link.");
             }
-
+            // cast nicht möglich
             return newRequest.ODataProperties().Path;
         }
 
